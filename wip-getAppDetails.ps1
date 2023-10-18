@@ -1,5 +1,5 @@
 # "wip-getAppDetails.ps1"
-
+# region GoNoGo
 # Ask for confirmation before running the script
 $confirmation = Read-Host "Are you sure you want to run this script? (yes/no)"
 if ($confirmation -ne 'yes') {
@@ -7,11 +7,13 @@ if ($confirmation -ne 'yes') {
     exit
 }
 
-
+# region PreReqs
 #Requires -Version 3.0
 #Make sure to fill in all the required variables before running the script
 #Also make sure the AppID used corresponds to an app with sufficient permissions, as follows:
 #    Directory.Read.All (hard-requirement for oauth2PermissionGrants, covers everything else needed)
+
+# region Helper Functions
 
 #==========================================================================
 #Helper functions
@@ -77,6 +79,7 @@ function Get-UserUPNById {
     return $SPusers[$objectID]
 }
 
+# region Main Script
 #==========================================================================
 #Main script starts here
 #==========================================================================
@@ -95,7 +98,7 @@ $body = @{
     # client_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id = "cd8dfaed-9a0e-4ef1-8df9-b736cbfc55bf" # "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     #client_secret = "verylongstring"
-    client_secret = "mkO8Q~cqTrM8NoOy40a6zMNA5COVZT3JOp0GdaJ2"
+    client_secret = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     scope = $Scopes
 }
 
